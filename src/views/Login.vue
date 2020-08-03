@@ -57,12 +57,11 @@ export default {
         email: this.email,
         password: this.password
       }
-
       Firebase.auth()
         .signInWithEmailAndPassword(info.email, info.password)
         .then(
           () => {
-            this.$router.push('meetings')
+            this.$router.push('/')
           },
           error => {
             this.error = error.message
