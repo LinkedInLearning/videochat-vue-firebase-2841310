@@ -1,9 +1,10 @@
 <template>
-  <div class="mt-3 container">
+  <div>
     <h1>Home</h1>
     <p>Welcome {{ user }}</p>
   </div>
 </template>
+
 <script>
 import db from '../db.js'
 export default {
