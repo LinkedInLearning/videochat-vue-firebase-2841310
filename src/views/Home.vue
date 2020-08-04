@@ -19,6 +19,7 @@
           <router-link class="btn btn-outline-primary mr-2" to="/register" v-if="!user"
             >Register</router-link
           >
+          <router-link class="btn btn-primary mr-2" to="/rooms" v-if="user">Rooms</router-link>
         </div>
       </div>
     </div>

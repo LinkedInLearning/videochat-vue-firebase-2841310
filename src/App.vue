@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Navigation :user="user" @logout="logout" />
-    <router-view :user="user" :rooms="rooms" @addRoom="addRoom" @logout="logout" />
+    <router-view :user="user" @logout="logout" @addRoom="addRoom" />
   </div>
 </template>
 <script>
@@ -12,8 +12,7 @@ export default {
   name: 'App',
   data: function() {
     return {
-      user: null,
-      rooms: []
+      user: null
     }
   },
   methods: {
@@ -35,7 +34,6 @@ export default {
         })
     }
   },
-
   mounted() {
     Firebase.auth().onAuthStateChanged(user => {
       if (user) {

@@ -37,7 +37,7 @@
 </template>
 <script>
 export default {
-  name: 'rooms',
+  name: 'Rooms',
   data: function() {
     return {
       roomName: null
@@ -49,7 +49,6 @@ export default {
       this.roomName = null
       this.$refs.roomName.focus()
     }
-  },
-  props: ['user', 'rooms']
+  }
 }
 </script>

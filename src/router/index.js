@@ -27,10 +27,6 @@ const routes = [
     path: '/rooms',
     name: 'Rooms',
     component: Rooms
-  },
-  {
-    path: '*',
-    redirect: '/'
   }
 ]
 
