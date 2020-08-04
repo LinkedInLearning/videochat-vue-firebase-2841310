@@ -2,8 +2,7 @@
   <div class="mt-3">
     <div class="text-center" v-if="user">
       Welcome back <span class="font-weight-bold text-info">{{ user.displayName }}</span
-      >,
-      <a href="#" role="button" class="text-primary" @click="$emit('logout')">logout</a>
+      >, <a href="#" role="button" class="text-primary" @click="$emit('logout')">logout</a>
     </div>
     <div class="container text-center">
       <div class="row justify-content-center">
