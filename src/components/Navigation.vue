@@ -9,6 +9,7 @@
           >
         </router-link>
         <div class="navbar-nav ml-auto">
+          <router-link class="nav-item nav-link" to="/rooms" v-if="user">rooms</router-link>
           <router-link class="nav-item nav-link" to="/login" v-if="!user">log in</router-link>
           <router-link class="nav-item nav-link" to="/register" v-if="!user">register</router-link>
           <button class="nav-item nav-link btn btn-link" v-if="user" @click="$emit('logout')">
