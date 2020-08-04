@@ -10,6 +10,7 @@
         </router-link>
         <div class="navbar-nav ml-auto">
           <router-link class="nav-item nav-link" to="/login">log in</router-link>
+          <router-link class="nav-item nav-link" to="/register">register</router-link>
         </div>
       </div>
     </nav>
