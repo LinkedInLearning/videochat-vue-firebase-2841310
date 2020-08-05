@@ -88,6 +88,6 @@ export default {
       this.$refs.roomName.focus()
     }
   },
-  props: ['user', 'rooms']
+  props: ['rooms']
 }
 </script>
