@@ -50,20 +50,12 @@
                   <font-awesome-icon icon="trash"></font-awesome-icon>
                 </button>
 
-                <router-link
-                  class="btn btn-sm btn-outline-secondary"
-                  title="Check In"
-                  :to="`/checkin/${user.uid}/${item.id}`"
-                >
-                  <font-awesome-icon icon="link"></font-awesome-icon>
+                <router-link class="btn btn-sm btn-outline-secondary" title="Check In" to="/">
+                  <font-awesome-icon icon="user"></font-awesome-icon>
                 </router-link>
 
-                <router-link
-                  class="btn btn-sm btn-outline-secondary"
-                  title="Attendees"
-                  :to="`/chat/${user.uid}/${item.id}`"
-                >
-                  <font-awesome-icon icon="list-ul"></font-awesome-icon>
+                <router-link class="btn btn-sm btn-outline-secondary" title="Attendees" to="/">
+                  <font-awesome-icon icon="video"></font-awesome-icon>
                 </router-link>
               </section>
 

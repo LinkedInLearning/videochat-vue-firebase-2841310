@@ -3,9 +3,9 @@ import App from './App.vue'
 import router from './router'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faTrash, faLink, faListUl } from '@fortawesome/free-solid-svg-icons'
+import { faTrash, faVideo, faUser } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faTrash, faLink, faListUl)
+library.add(faTrash, faVideo, faUser)
 
 Vue.config.productionTip = false
 

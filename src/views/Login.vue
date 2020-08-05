@@ -65,7 +65,7 @@ export default {
         .signInWithEmailAndPassword(info.email, info.password)
         .then(
           () => {
-            this.$router.push('/')
+            this.$router.push('/rooms')
           },
           error => {
             this.error = error.message
