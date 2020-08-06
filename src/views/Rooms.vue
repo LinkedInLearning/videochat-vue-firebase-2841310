@@ -50,7 +50,11 @@
                   <font-awesome-icon icon="trash"></font-awesome-icon>
                 </button>
 
-                <router-link class="btn btn-sm btn-outline-secondary" title="Check In" to="/">
+                <router-link
+                  class="btn btn-sm btn-outline-secondary"
+                  title="Check In"
+                  :to="`/checkin/${user.uid}/${item.id}`"
+                >
                   <font-awesome-icon icon="user"></font-awesome-icon>
                 </router-link>
 
@@ -88,6 +92,6 @@ export default {
       this.$refs.roomName.focus()
     }
   },
-  props: ['rooms']
+  props: ['rooms', 'user']
 }
 </script>
