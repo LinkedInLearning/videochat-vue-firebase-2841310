@@ -4,7 +4,6 @@
       <span class="mb-0 h2 text-primary"></span>
       <span class="ml-1"> Hosted by: <strong class="text-danger"></strong> </span>
     </div>
-
     <div class="row">
       <div class="col-md-8"></div>
       <div class="col-md-4">
@@ -14,14 +13,12 @@
         <button type="button" class="btn btn-danger mr-1">
           Leave
         </button>
-
         <h4 class="mt-2">Attendees</h4>
         <ul class="list-unstyled">
           <li>
             <span class="mr-2" title="On Air">
               <font-awesome-icon icon="podcast"></font-awesome-icon>
             </span>
-
             <span></span>
             <span class="pl-1"></span>
           </li>
