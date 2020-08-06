@@ -101,7 +101,7 @@ export default {
                   displayName: info.displayName
                 })
                 .then(() => {
-                  this.$router.replace('/rooms')
+                  this.$router.replace('/')
                 })
             },
             error => {

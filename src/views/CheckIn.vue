@@ -48,7 +48,6 @@ export default {
         roomID: this.$route.params.roomID,
         displayName: this.displayName
       })
-      this.displayName = null
     }
   },
   props: ['user'],
