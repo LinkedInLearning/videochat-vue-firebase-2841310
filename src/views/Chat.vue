@@ -1,8 +1,10 @@
 <template>
   <div class="container-fluid mt-4">
     <div class="mb-3">
-      <span class="mb-0 h2 text-primary"></span>
-      <span class="ml-1"> Hosted by: <strong class="text-danger"></strong> </span>
+      <span class="mb-0 h2 text-primary">{{ roomName }}</span>
+      <span class="ml-1">
+        Hosted by: <strong class="text-danger">{{ hostDisplayName }}</strong>
+      </span>
     </div>
     <div class="row">
       <div class="col-md-8"></div>
@@ -49,3 +51,53 @@
     </div>
   </div>
 </template>
+<script>
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import db from '../db.js'
+export default {
+  name: 'Attendees',
+  data: function() {
+    return {
+      hostID: this.$route.params.hostID,
+      roomID: this.$route.params.roomID,
+      roomName: null
+    }
+  },
+  props: ['user'],
+  mounted() {
+    const roomRef = db
+      .collection('users')
+      .doc(this.hostID)
+      .collection('rooms')
+      .doc(this.roomID)
+
+    //Get Room Name
+
+    roomRef.get().then(roomDocument => {
+      if (roomDocument.exists) {
+        this.roomName = roomDocument.data().name
+      } else {
+        this.$router.replace('/')
+      }
+    })
+
+    roomRef.collection('attendees').onSnapshot(attendeeSnapshot => {
+      let amCheckedIn = false
+
+      attendeeSnapshot.forEach(attendeeDocument => {
+        if (this.user.uid == attendeeDocument.id) {
+          amCheckedIn = true
+        }
+
+        if (this.hostID == attendeeDocument.id) {
+          this.hostDisplayName = attendeeDocument.data().displayName
+        }
+
+        if (!amCheckedIn) {
+          this.$router.push(`/checkin/${this.hostID}/${this.roomID}`)
+        }
+      })
+    })
+  }
+}
+</script>
