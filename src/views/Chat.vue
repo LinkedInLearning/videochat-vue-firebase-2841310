@@ -72,7 +72,6 @@ export default {
       .doc(this.roomID)
 
     //Get Room Name
-
     roomRef.get().then(roomDocument => {
       if (roomDocument.exists) {
         this.roomName = roomDocument.data().name
