@@ -173,7 +173,7 @@ export default {
           tempPending.push({
             id: attendeeDocument.id,
             displayName: attendeeDocument.data().displayName,
-            approved: attendeeDocument.data().tempApproved
+            approved: attendeeDocument.data().approved
           })
         }
       })
