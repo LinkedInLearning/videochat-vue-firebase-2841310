@@ -6,7 +6,7 @@
         Hosted by: <strong class="text-danger">{{ hostDisplayName }}</strong>
       </span>
     </div>
-    <div class="row">
+    <div class="row" v-if="(user !== null && user.uid == hostID) || attendeeApproved">
       <div class="col-md-8"></div>
       <div class="col-md-4">
         <button class="btn btn-primary mr-1">
@@ -33,7 +33,12 @@
                 <a type="button" class="mr-2" title="Approve attendee">
                   <font-awesome-icon icon="user"></font-awesome-icon>
                 </a>
-                <a type="button" class="text-secondary pr-1" title="Delete Attendee">
+                <a
+                  type="button"
+                  class="text-secondary pr-1"
+                  title="Delete Attendee"
+                  @click="deleteAttendee(attendee.id)"
+                >
                   <font-awesome-icon icon="trash"></font-awesome-icon>
                 </a>
               </span>
@@ -43,7 +48,7 @@
         </div>
       </div>
     </div>
-    <div>
+    <div v-else>
       <p class="lead">
         Hi <strong class="text-primary font-weight-bold"></strong>, you're currently in the room
         waiting for the owner of the chat to add you to the meeting. Please wait.
@@ -67,6 +72,19 @@ export default {
   },
   components: {
     FontAwesomeIcon
+  },
+  methods: {
+    deleteAttendee: function(attendeeID) {
+      if (this.user && this.user.uid == this.hostID) {
+        db.collection('users')
+          .doc(this.user.uid)
+          .collection('rooms')
+          .doc(this.roomID)
+          .collection('attendees')
+          .doc(attendeeID)
+          .delete()
+      }
+    }
   },
   props: ['user'],
   mounted() {
