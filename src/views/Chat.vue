@@ -60,8 +60,12 @@ export default {
     return {
       hostID: this.$route.params.hostID,
       roomID: this.$route.params.roomID,
-      roomName: null
+      roomName: null,
+      hostDisplayName: null
     }
+  },
+  components: {
+    FontAwesomeIcon
   },
   props: ['user'],
   mounted() {
@@ -91,11 +95,10 @@ export default {
         if (this.hostID == attendeeDocument.id) {
           this.hostDisplayName = attendeeDocument.data().displayName
         }
-
-        if (!amCheckedIn) {
-          this.$router.push(`/checkin/${this.hostID}/${this.roomID}`)
-        }
       })
+      if (!amCheckedIn) {
+        this.$router.push(`/checkin/${this.hostID}/${this.roomID}`)
+      }
     })
   }
 }
