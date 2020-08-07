@@ -21,15 +21,16 @@
             <a
               type="button"
               class="mr-2"
-              :class="[attendee.approved ? 'text-secondary' : '', 'text-secondary']"
               title="Approve attendee"
               @click="toggleApproval(attendee.id)"
             >
               <font-awesome-icon icon="user"></font-awesome-icon>
             </a>
+
             <span class="mr-2" title="On Air">
               <font-awesome-icon icon="podcast"></font-awesome-icon>
             </span>
+            <span></span>
             <span class="pl-1">{{ attendee.displayName }}</span>
           </li>
         </ul>
@@ -41,7 +42,6 @@
                 <a
                   type="button"
                   class="mr-2"
-                  :class="[attendee.approved ? 'text-secondary' : '', 'text-secondary']"
                   title="Approve attendee"
                   @click="toggleApproval(attendee.id)"
                 >
@@ -80,7 +80,6 @@ export default {
       attendeesApproved: [],
       attendeesPending: [],
       attendeeApproved: false,
-      attendeeJoined: false,
       hostID: this.$route.params.hostID,
       roomID: this.$route.params.roomID,
       roomName: null,
@@ -153,9 +152,11 @@ export default {
         if (this.user.uid == attendeeDocument.id) {
           amCheckedIn = true
         }
+
         if (this.hostID == attendeeDocument.id) {
           this.hostDisplayName = attendeeDocument.data().displayName
         }
+
         if (attendeeDocument.data().approved) {
           if (this.user.uid == attendeeDocument.id) {
             this.attendeeApproved = true
@@ -170,6 +171,7 @@ export default {
           if (this.user.uid == attendeeDocument.id) {
             this.attendeeApproved = false
           }
+
           tempPending.push({
             id: attendeeDocument.id,
             displayName: attendeeDocument.data().displayName,
