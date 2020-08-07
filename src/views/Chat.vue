@@ -99,10 +99,8 @@ export default {
         }
         tempPending.push({
           id: attendeeDocument.id,
-          eMail: attendeeDocument.data().eMail,
           displayName: attendeeDocument.data().displayName,
-          approved: attendeeDocument.data().approved,
-          webRTCID: attendeeDocument.data().webRTCID
+          approved: attendeeDocument.data().approved
         })
       })
       this.attendeesPending = tempPending
