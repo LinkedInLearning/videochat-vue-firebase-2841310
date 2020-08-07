@@ -99,8 +99,7 @@ export default {
         }
         tempPending.push({
           id: attendeeDocument.id,
-          displayName: attendeeDocument.data().displayName,
-          approved: attendeeDocument.data().approved
+          displayName: attendeeDocument.data().displayName
         })
       })
       this.attendeesPending = tempPending
