@@ -6,7 +6,7 @@
         Hosted by: <strong class="text-danger">{{ hostDisplayName }}</strong>
       </span>
     </div>
-    <div class="row" v-if="(user !== null && user.uid == hostID) || attendeeApproved">
+    <div class="row" v-if="user !== null && user.uid == hostID">
       <div class="col-md-8"></div>
       <div class="col-md-4">
         <button class="btn btn-primary mr-1">
