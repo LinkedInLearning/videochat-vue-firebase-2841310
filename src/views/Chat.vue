@@ -6,7 +6,6 @@
         Hosted by: <strong class="text-danger">{{ hostDisplayName }}</strong>
       </span>
     </div>
-
     <div class="row" v-if="(user !== null && user.uid == hostID) || attendeeApproved">
       <div class="col-md-8">
         <vue-webrtc
@@ -28,30 +27,26 @@
         <button v-if="attendeeJoined" type="button" class="btn btn-danger mr-1" @click="doLeave">
           Leave
         </button>
-
         <h4 class="mt-2">Attendees</h4>
         <ul class="list-unstyled">
           <li v-for="attendee in attendeesApproved" :key="attendee.id">
+            <a
+              type="button"
+              class="mr-2"
+              title="Approve attendee"
+              @click="toggleApproval(attendee.id)"
+              v-if="user && user.uid == hostID"
+            >
+              <font-awesome-icon icon="user"></font-awesome-icon>
+            </a>
+
             <span
               class="mr-2"
               :class="[attendee.webRTCID ? 'text-success' : 'text-secondary']"
-              v-if="user !== null && user.uid == hostID"
               title="On Air"
             >
-              <a
-                type="button"
-                class="mr-2"
-                title="Approve attendee"
-                @click="toggleApproval(attendee.id)"
-                v-if="user && user.uid == hostID"
-              >
-                <font-awesome-icon icon="user"></font-awesome-icon>
-              </a>
-              <span class="mr-2" title="On Air">
-                <font-awesome-icon icon="podcast"></font-awesome-icon>
-              </span>
+              <font-awesome-icon icon="podcast"></font-awesome-icon>
             </span>
-
             <span
               class="pl-1"
               :class="[attendee.id == user.uid ? 'font-weight-bold text-danger' : '']"
@@ -198,7 +193,6 @@ export default {
       .doc(this.roomID)
 
     //Get Room Name
-
     roomRef.get().then(roomDocument => {
       if (roomDocument.exists) {
         this.roomName = roomDocument.data().name
@@ -236,6 +230,7 @@ export default {
           if (this.user.uid == attendeeDocument.id) {
             this.attendeeApproved = false
           }
+
           tempPending.push({
             id: attendeeDocument.id,
             displayName: attendeeDocument.data().displayName,
