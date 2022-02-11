@@ -30,7 +30,7 @@
     "eslint-plugin-vue": "^6.2.2",
     "firebase": "^7.17.1",
     "jquery": "^3.5.1",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "popper.js": "^1.16.1",
     "prettier": "^1.19.1",
     "sass-loader": "^8.0.2",
