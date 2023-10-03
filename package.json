@@ -11,7 +11,7 @@
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
-    "vue-webrtc": "^1.2.2"
+    "vue-webrtc": "^3.0.1"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.14.0",
